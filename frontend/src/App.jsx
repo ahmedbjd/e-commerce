@@ -3,15 +3,17 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Avantage from './pages/Avantage'
 import Services from './pages/Services'
+import Statics from './pages/Statics'
 
 const App = () => {
   return (
-    <div>
+    <>
        <Navbar />
        <Home />
        <Avantage />
        <Services />
-    </div>
+       <Statics />
+    </>
   )
 }
 
