@@ -27,8 +27,7 @@ const Home = () => {
             "
             style={{ fontFamily: "VeneerClean, sans-serif" }}
           >
-            <span className="block sm:inline">Expertise en construction</span>{" "}
-            modulaire pétrolière
+            Expertise en construction modulaire pétrolière
           </h1>
 
           <p
