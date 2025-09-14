@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Home = () => {
   return (
     <main
-      className="h-[80vh] bg-cover bg-center text-white"
+      className="h-screen bg-cover bg-center text-white"
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="w-[85%] m-auto py-10">
