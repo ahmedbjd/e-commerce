@@ -39,7 +39,7 @@ const cards = [
 
 const Avantage = () => {
   return (
-    <main className="w-[90%] md:w-[85%] m-auto mt-14">
+    <main className="w-[90%] md:w-[85%] m-auto my-14">
       <motion.div
         className="text-center mb-12"
         initial={{ opacity: 0, y: -50 }}
