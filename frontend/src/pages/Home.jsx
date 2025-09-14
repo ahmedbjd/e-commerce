@@ -55,7 +55,7 @@ const Home = () => {
             <button
               className="
                 flex items-center gap-4 border border-white text-white
-                p-3 md:p-5 
+                p-3 md:p-5 max-sm:justify-center
                 transition-all duration-300 ease-in-out
                 hover:scale-105 hover:cursor-pointer
               "

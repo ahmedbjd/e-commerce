@@ -49,7 +49,7 @@ const Avantage = () => {
       >
         <img src={logo} alt="logo" className="mx-auto mb-2" />
         <h1
-          className="text-4xl font-bold"
+          className="text-4xl font-bold max-lg:text-2xl"
           style={{ fontFamily: "Veneer Clean Soft, sans-serif" }}
         >
           CLÉS DE NOTRE SUCCÈS
