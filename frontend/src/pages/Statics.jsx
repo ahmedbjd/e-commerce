@@ -14,7 +14,7 @@ const stats = [
 const Statics = () => {
   return (
     <main
-      className="relative min-h-[400px] bg-cover bg-center flex justify-center my-24 px-4"
+      className="relative min-h-[400px] bg-cover bg-center flex justify-center mt-24 px-4"
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div className="absolute inset-0 bg-[#E1000F]/70"></div>

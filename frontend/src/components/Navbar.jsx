@@ -5,9 +5,13 @@ import ion_cart from "../assets/ion_cart.png";
 import Vector from "../assets/Vector.png";
 import phone from "../assets/phone.png";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const { cartCount } = useCart();
+  const navigate = useNavigate();
 
   return (
     <motion.main
@@ -35,14 +39,14 @@ const Navbar = () => {
         </div>
       </section>
 
-      <nav className="flex justify-between w-[90%] md:w-[85%] m-auto my-4 md:my-8 items-center relative">
+      <nav className="flex justify-between w-[85%] max-2xl:w-[90%] max-lg:gap-5 max- m-auto my-4 md:my-8 items-center relative">
         <div>
-          <img src={logo} alt="logo" className="hover:cursor-pointer w-28 md:w-auto" />
+          <img src={logo} alt="logo" className="hover:cursor-pointer lg:mr-3 lg:w-[150px] lg:h-[50px] max-md:w-24" />
         </div>
 
         <div className="hidden md:block">
-          <ul className="flex gap-6 lg:gap-12 hover:cursor-pointer text-[#1C1C1C] text-sm lg:text-base">
-            <li>Accueil</li>
+          <ul className="flex gap-6 xl:gap-12 max-xl:gap-5 hover:cursor-pointer text-[#1C1C1C] text-sm lg:text-base">
+            <li onClick={() => navigate('/')}>Accueil</li>
             <li>Solutions</li>
             <li>Secteurs</li>
             <li>Projets</li>
@@ -52,19 +56,18 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <div className="md:hidden">
-          <button onClick={() => setOpen(!open)} className="p-2">
-            {open ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
-          </button>
-        </div>
+          <img src={ion_cart} alt="cart" className="max-lg:hidden hover:cursor-pointer w-6 h-6 lg:mx-4" onClick={() => navigate('/cart') } />
+            <button className="bg-[#E1000F] max-lg:hidden flex items-center text-white px-4 py-3 gap-2 text-sm lg:text-xl hover:cursor-pointer">
+              Contact 
+              <img src={Vector} alt="vector" className="w-4 h-4 lg:w-5 lg:h-5" />
+            </button>
 
-        <div className="hidden md:flex items-center gap-4">
-          <img src={ion_cart} alt="cart" className="hover:cursor-pointer w-6 h-6" />
-          <button className="bg-[#E1000F] flex items-center text-white px-4 py-3 gap-2 text-sm lg:text-xl hover:cursor-pointer">
-            Contact 
-            <img src={Vector} alt="vector" className="w-4 h-4 lg:w-5 lg:h-5" />
-          </button>
-        </div>
+          <div className="lg:hidden flex items-center gap-12">
+            <img src={ion_cart} alt="cart" className="hover:cursor-pointer w-6 h-6 lg:mx-4" onClick={() => navigate('/cart') } />  
+              <button onClick={() => setOpen(!open)} className="p-2">
+                {open ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
+              </button>
+           </div>
 
         {open && (
           <div className="absolute top-full left-0 w-full bg-white shadow-md md:hidden">
@@ -76,10 +79,6 @@ const Navbar = () => {
               <li>Expertise</li>
               <li>Recrutement</li>
               <li>News</li>
-              <li>
-                <img src={ion_cart} alt="cart" className="w-6 h-6 inline mr-2" />
-                Panier
-              </li>
               <li>
                 <button className="bg-[#E1000F] flex items-center text-white px-4 py-2 gap-2 text-sm hover:cursor-pointer">
                   Contact 
