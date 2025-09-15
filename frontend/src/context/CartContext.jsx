@@ -5,19 +5,29 @@ const CartContext = createContext();
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
-  const addToCart = (product) => {
-    setCart((prev) => {
-      const existing = prev.find((item) => item.id === product.id);
+  const addToCart = async (product) => {
+    // fetch stock once
+    const res = await fetch(`https://e-commerce-backend-63u5.onrender.com/api/products/${product.id}`);
+    const productData = await res.json();
+  
+    if (!productData.status) return;
+  
+    const maxStock = productData.data.quantity;
+  
+    setCart((prevCart) => {
+      const existing = prevCart.find((item) => item.id === product.id);
       if (existing) {
-        return prev.map((item) =>
+        return prevCart.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: item.quantity + 1 }
+            ? { ...item, quantity: Math.min(item.quantity + 1, maxStock), maxStock }
             : item
         );
+      } else {
+        return [...prevCart, { ...product, quantity: 1, maxStock }];
       }
-      return [...prev, { ...product, quantity: 1 }];
     });
   };
+  
 
   const removeFromCart = (id) => {
     setCart((prev) => prev.filter((item) => item.id !== id));

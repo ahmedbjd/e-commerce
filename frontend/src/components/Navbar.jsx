@@ -39,7 +39,7 @@ const Navbar = () => {
         </div>
       </section>
 
-      <nav className="flex justify-between w-[85%] max-2xl:w-[90%] max-lg:gap-5 max- m-auto my-4 md:my-8 items-center relative">
+      <nav className=" flex justify-between w-[85%] max-2xl:w-[90%] max-lg:gap-5 max- m-auto my-4 md:my-8 items-center relative">
         <div>
           <img src={logo} alt="logo" className="hover:cursor-pointer lg:mr-3 lg:w-[150px] lg:h-[50px] max-md:w-24" />
         </div>
@@ -94,3 +94,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
